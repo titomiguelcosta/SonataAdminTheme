@@ -31,7 +31,7 @@ class LoadUserData implements FixtureInterface
             'ROLE_USER'
         ]);
 
-        $manager->persist($userAdmin);
+        $manager->persist($user);
         $manager->flush();
     }
 }
