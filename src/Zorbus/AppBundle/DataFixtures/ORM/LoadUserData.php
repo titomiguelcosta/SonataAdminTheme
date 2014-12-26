@@ -15,7 +15,7 @@ class LoadUserData implements FixtureInterface
     {
         $userAdmin = new User();
         $userAdmin->setUsername('admin');
-        $userAdmin->setPassword('1234567');
+        $userAdmin->setPlainPassword('1234567');
         $userAdmin->setEmail('admin@example.com');
         $userAdmin->setEnabled(true);
         $userAdmin->setRoles([
@@ -26,7 +26,7 @@ class LoadUserData implements FixtureInterface
 
         $user = new User();
         $user->setUsername('user');
-        $user->setPassword('1234567');
+        $user->setPlainPassword('1234567');
         $user->setEmail('user@example.com');
         $user->setEnabled(true);
         $user->setRoles([
