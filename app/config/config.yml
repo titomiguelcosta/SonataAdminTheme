@@ -74,9 +74,9 @@ swiftmailer:
     spool:     { type: memory }
 
 fos_user:
-    db_driver:      orm
-    firewall_name:  main
-    user_class:     Zorbus\AppBundle\Entity\User
+    db_driver: orm
+    firewall_name: main
+    user_class: Zorbus\AppBundle\Entity\User
 
     group:
         group_class:   Zorbus\AppBundle\Entity\Group
