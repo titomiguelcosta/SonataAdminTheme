@@ -32,7 +32,5 @@ set :vendors_mode, "install"
 set :copy_vendors, true
 
 after "deploy", "deploy:cleanup"
-after "deploy:create_symlink", "symfony:doctrine:schema:update"
-after "deploy:create_symlink" do
-    run "#{try_sudo} sh -c 'cd #{latest_release} && #{php_bin} #{symfony_console} doctrine:fixtures:load #{console_options}'"
-end
+after "deploy:create_symlink", "symfony:doctrine:migrations:migrate"
+after "deploy:create_symlink", "symfony:doctrine:load_fixtures"
