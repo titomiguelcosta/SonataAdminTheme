@@ -26,9 +26,9 @@ file that was distributed with this source code.
 {% block field %}
     {% spaceless %}
         {% if value %}
-            <span class="label label-success">{%- trans from 'SonataAdminBundle' %}label_type_yes{% endtrans -%}</span>
+            <span class="glyphicon glyphicon-ok"></span>
         {% else %}
-            <span class="label label-danger">{%- trans from 'SonataAdminBundle' %}label_type_no{% endtrans -%}</span>
+            <span class="glyphicon glyphicon-remove"></span>
         {% endif %}
     {% endspaceless %}
 {% endblock %}

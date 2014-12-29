@@ -14,36 +14,38 @@ file that was distributed with this source code.
 {% block title %}{{ 'title_search_results'|trans({'%query%': query}, 'SonataAdminBundle') }}{% endblock%}
 {% block breadcrumb %}{% endblock %}
 {% block content %}
-    <!--
-    <div class="row">
-        <form action="{{ url('sonata_admin_search') }}" method="GET"  class="form-search">
-            <div class="input-append">
-                <input type="text" name="q" value="{{ query }}" class="input-large search-query">
-                <button type="submit" class="btn">Search</button>
-            </div>
-        </form>
+    <div class="page-header">
+        <h2>{{ 'title_search_results'|trans({'%query%': query}, 'SonataAdminBundle') }}</h2>
     </div>
-    -->
-
-    <h1>{{ 'title_search_results'|trans({'%query%': query}, 'SonataAdminBundle') }}</h1>
 
     {% if query is defined and query is not sameas(false) %}
         {% set count = 0 %}
-        <div class="row">
-
-            {% for group in groups %}
+        <div role="tabpanel">
+            <ul class="nav nav-tabs" role="tablist">
+            {% for index, group in groups %}
                 {% set display = (group.roles is empty or is_granted('ROLE_SUPER_ADMIN') ) %}
                 {% for role in group.roles if not display %}
                     {% set display = is_granted(role)%}
                 {% endfor %}
 
                 {% if display %}
-                    {% for admin in group.items %}
-                        {% if count % 3 == 0 %}
-                            </div><div class="row">
-                        {% endif %}
+                    <li role="presentation" class="{% if loop.first %}active{% endif %}">
+                        <a href="#menu{{ index }}" aria-controls="menu{{ index }}" role="tab" data-toggle="tab">{{ group.label| trans({}, group.label_catalogue) }}</a>
+                    </li>
+                {% endif %}
+            {% endfor %}
+            </ul>
 
-                        {% set count = count + 1 %}
+            <div class="tab-content">
+            {% for index, group in groups %}
+                {% set display = (group.roles is empty or is_granted('ROLE_SUPER_ADMIN') ) %}
+                {% for role in group.roles if not display %}
+                    {% set display = is_granted(role)%}
+                {% endfor %}
+
+                {% if display %}
+                    <div role="tabpanel" class="tab-pane{% if loop.first %}active{% endif %}" id="menu{{ index }}">
+                    {% for admin in group.items %}
                         {% if admin.hasroute('create') and admin.isGranted('CREATE') or admin.hasroute('list') and admin.isGranted('LIST') %}
                             {{ sonata_block_render({
                                 'type': 'sonata.admin.block.search_result'
@@ -55,8 +57,10 @@ file that was distributed with this source code.
                             }) }}
                         {% endif %}
                     {% endfor %}
+                    </div>
                 {% endif %}
             {% endfor %}
+            </div>
         </div>
     {% endif %}
 

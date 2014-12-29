@@ -21,6 +21,13 @@ file that was distributed with this source code.
 
 {% block tab_menu %}{{ knp_menu_render(admin.sidemenu(action), {'currentClass' : 'active', 'template': admin_pool.getTemplate('tab_menu_template')}, 'twig') }}{% endblock %}
 
+{% block title %}
+    {{ "title_list"|trans({}, 'SonataAdminBundle') }}
+{% endblock%}
+
+{% block navbar_title %}
+    {{ block('title') }}
+{% endblock %}
 
 {% block list_table %}
     <div class="box box-primary">
@@ -35,7 +42,7 @@ file that was distributed with this source code.
                 <form action="{{ admin.generateUrl('batch', {'filter': admin.filterParameters}) }}" method="POST" >
                     <input type="hidden" name="_sonata_csrf_token" value="{{ csrf_token }}">
                 {% endif %}
-                    <table class="table table-bordered table-striped">
+                    <table class="table table-bordered table-striped table-hover">
                         {% block table_header %}
                             <thead>
                                 <tr class="sonata-ba-list-field-header">
@@ -86,7 +93,7 @@ file that was distributed with this source code.
                         {% block table_footer %}
                             <tfoot>
                                 <tr>
-                                    <th colspan="{{ admin.list.elements|length - (app.request.isXmlHttpRequest ? (admin.list.has('_action') + admin.list.has('batch')) : 0) }}">
+                                    <td colspan="{{ admin.list.elements|length - (app.request.isXmlHttpRequest ? (admin.list.has('_action') + admin.list.has('batch')) : 0) }}">
                                         <div class="form-inline">
                                             {% if not app.request.isXmlHttpRequest %}
                                                 {% if admin.hasRoute('batch') and batchactions|length > 0  %}
@@ -152,25 +159,26 @@ file that was distributed with this source code.
                                                                 {% endfor %}
                                                             </ul>
                                                         </div>
-
-                                                        &nbsp;-&nbsp;
                                                     {% endif %}
-
-                                                    {% block pager_results %}
-                                                        {% include admin.getTemplate('pager_results') %}
-                                                    {% endblock %}
                                                 </div>
                                             {% endif %}
                                         </div>
-                                    </th>
+                                    </td>
                                 </tr>
 
-                                {% block pager_links %}
-                                    {% if admin.datagrid.pager.haveToPaginate() %}
-                                        {% include admin.getTemplate('pager_links') %}
-                                    {% endif %}
-                                {% endblock %}
+                                <tr>
+                                    <td colspan="{{ admin.list.elements|length }}">
+                                        {% block pager_links %}
+                                            {% if admin.datagrid.pager.haveToPaginate() %}
+                                                {% include admin.getTemplate('pager_links') %}
+                                            {% endif %}
+                                        {% endblock %}
 
+                                        {% block pager_results %}
+                                            {% include admin.getTemplate('pager_results') %}
+                                        {% endblock %}
+                                    </td>
+                                </tr>
                             </tfoot>
                         {% endblock %}
                     </table>
@@ -178,7 +186,7 @@ file that was distributed with this source code.
                 </form>
                 {% endif %}
             {% else %}
-                <div class="callout callout-info">
+                <div class="alert alert-warning">
                     {{ 'no_result'|trans({}, 'SonataAdminBundle') }}
                 </div>
             {% endif %}
@@ -186,8 +194,6 @@ file that was distributed with this source code.
             {% block list_footer %}{% endblock %}
 
             {{ sonata_block_render_event('sonata.admin.list.table.bottom', { 'admin': admin }) }}
-
-
         </div>
     </div>
 {% endblock %}
