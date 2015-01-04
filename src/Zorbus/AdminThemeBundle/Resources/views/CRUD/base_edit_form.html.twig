@@ -53,7 +53,7 @@
                                 {% endfor %}
                             </div>
                         </div>
-                    {% else %}
+                    {% elseif admin.formtabs['default'] is defined %}
                         {{ form_helper.render_groups(admin, form, admin.formtabs['default'].groups, has_tab) }}
                     {% endif %}
                 </div>

@@ -29,6 +29,10 @@ class AppKernel extends Kernel
             new Zorbus\AdminThemeBundle\ZorbusAdminThemeBundle(),
             new Zorbus\AppBundle\ZorbusAppBundle(),
             new Zorbus\UserThemeBundle\ZorbusUserThemeBundle(),
+            new Zorbus\PageBundle\ZorbusPageBundle(),
+            new Zorbus\BlockBundle\ZorbusBlockBundle(),
+            new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
+            new Symfony\Cmf\Bundle\RoutingBundle\CmfRoutingBundle()
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

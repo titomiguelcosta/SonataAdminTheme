@@ -57,6 +57,10 @@ doctrine:
             json: Sonata\Doctrine\Types\JsonType
 
     orm:
+        resolve_target_entities:
+            Zorbus\PageBundle\Model\PageInterface: Zorbus\AppBundle\Entity\Page
+            Zorbus\PageBundle\Model\PageBlockInterface: Zorbus\AppBundle\Entity\PageBlock
+            Zorbus\BlockBundle\Model\BlockInterface: Zorbus\AppBundle\Entity\Block
         auto_generate_proxy_classes: "%kernel.debug%"
         entity_managers:
             default:
@@ -64,6 +68,7 @@ doctrine:
                     FOSUserBundle: ~
                     ZorbusAppBundle: ~
                     SonataUserBundle: ~
+                    ZorbusBlockBundle: ~
 
 # Swiftmailer Configuration
 swiftmailer:
@@ -84,6 +89,15 @@ fos_user:
 
     service:
         user_manager: sonata.user.orm.user_manager
+
+stof_doctrine_extensions:
+    default_locale: %locale%
+    orm:
+        default:
+            timestampable: true
+            sluggable: true
+            tree: true
+            sortable: true
 
 sonata_user:
     security_acl: true
@@ -201,3 +215,15 @@ sonata_doctrine_orm_admin:
                 percent:    ZorbusAdminThemeBundle:CRUD:base_percent.html.twig
                 choice:     ZorbusAdminThemeBundle:CRUD:show_choice.html.twig
                 url:        ZorbusAdminThemeBundle:CRUD:show_url.html.twig
+
+cmf_routing:
+    chain:
+        routers_by_id:
+            zorbus.page.router: 300
+            router.default: 100
+
+zorbus_page:
+    entities:
+        page: Zorbus\AppBundle\Entity\Page
+        page_block: Zorbus\AppBundle\Entity\PageBlock
+        block: Zorbus\AppBundle\Entity\Block
