@@ -3264,12 +3264,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/titomiguelcosta/ZorbusBlockBundle.git",
-                "reference": "d56d7e814990626c6e6682c4ad74d133f95490b6"
+                "reference": "2ce040f6dbe5c3671ac8b4189ac148952031fb45"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/titomiguelcosta/ZorbusBlockBundle/zipball/d56d7e814990626c6e6682c4ad74d133f95490b6",
-                "reference": "d56d7e814990626c6e6682c4ad74d133f95490b6",
+                "url": "https://api.github.com/repos/titomiguelcosta/ZorbusBlockBundle/zipball/2ce040f6dbe5c3671ac8b4189ac148952031fb45",
+                "reference": "2ce040f6dbe5c3671ac8b4189ac148952031fb45",
                 "shasum": ""
             },
             "require": {
@@ -3320,7 +3320,7 @@
                 "orm",
                 "sonata"
             ],
-            "time": "2015-01-04 17:18:04"
+            "time": "2015-01-04 17:47:18"
         },
         {
             "name": "zorbus/page-bundle",
