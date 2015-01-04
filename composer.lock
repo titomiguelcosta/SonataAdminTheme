@@ -3390,7 +3390,7 @@
             "time": "2015-01-04 17:17:30"
         }
     ],
-    "packages-dev": [],
+    "packages-dev": null,
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
