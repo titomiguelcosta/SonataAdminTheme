@@ -26,7 +26,9 @@
         "doctrine/doctrine-migrations-bundle": "2.1.*@dev",
         "doctrine/doctrine-fixtures-bundle": "2.2.*",
         "stof/doctrine-extensions-bundle": "~1.1",
-        "symfony-cmf/routing-bundle": "~1.1"
+        "symfony-cmf/routing-bundle": "~1.1",
+        "zorbus/page-bundle": "@dev",
+        "zorbus/block-bundle": "@dev"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"
