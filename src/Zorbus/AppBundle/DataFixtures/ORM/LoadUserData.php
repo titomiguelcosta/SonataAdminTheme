@@ -19,7 +19,7 @@ class LoadUserData implements FixtureInterface
         $userAdmin->setEmail('admin@example.com');
         $userAdmin->setEnabled(true);
         $userAdmin->setRoles([
-            'ROLE_SUPER_ADMIN'
+            'ROLE_SUPER_ADMIN',
         ]);
 
         $manager->persist($userAdmin);
@@ -30,7 +30,7 @@ class LoadUserData implements FixtureInterface
         $user->setEmail('user@example.com');
         $user->setEnabled(true);
         $user->setRoles([
-            'ROLE_USER'
+            'ROLE_USER',
         ]);
 
         $manager->persist($user);

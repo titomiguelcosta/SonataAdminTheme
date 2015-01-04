@@ -10,5 +10,4 @@ use Zorbus\BlockBundle\Entity\Block as BaseBlock;
  */
 class Block extends BaseBlock
 {
-
 }

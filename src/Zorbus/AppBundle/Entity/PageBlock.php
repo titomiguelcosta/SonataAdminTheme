@@ -10,5 +10,4 @@ use Zorbus\PageBundle\Model\PageBlock as BasePageBlock;
  */
 class PageBlock extends BasePageBlock
 {
-
 }

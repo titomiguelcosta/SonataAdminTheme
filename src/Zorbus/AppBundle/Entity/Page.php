@@ -10,5 +10,4 @@ use Zorbus\PageBundle\Model\Page as BasePage;
  */
 class Page extends BasePage
 {
-
 }

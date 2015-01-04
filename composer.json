@@ -31,7 +31,9 @@
         "zorbus/block-bundle": "@dev"
     },
     "require-dev": {
-        "sensio/generator-bundle": "~2.3"
+        "sensio/generator-bundle": "~2.3",
+        "phpunit/phpunit": "~3.7",
+        "fabpot/php-cs-fixer": "~1.3"
     },
     "scripts": {
         "post-root-package-install": [
