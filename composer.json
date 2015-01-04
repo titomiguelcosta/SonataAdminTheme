@@ -28,7 +28,9 @@
         "stof/doctrine-extensions-bundle": "~1.1",
         "symfony-cmf/routing-bundle": "~1.1",
         "zorbus/page-bundle": "@dev",
-        "zorbus/block-bundle": "@dev"
+        "zorbus/block-bundle": "@dev",
+        "zorbus/admin-theme-bundle": "@dev",
+        "zorbus/user-theme-bundle": "@dev"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3",

@@ -9,3 +9,7 @@
 /build/
 /vendor/
 /bin/
+/src/Zorbus/AdminThemeBundle
+/src/Zorbus/BlockBundle
+/src/Zorbus/PageBundle
+/src/Zorbus/UserThemeBundle
